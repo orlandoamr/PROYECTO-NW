@@ -17,32 +17,63 @@
     <br>
     <br>
     <br>
-    Aqui van todos los items del hero
+      Aqui van todos los items del hero
     <br>
     <br>
     <br>
     <br>
     <br>
   </section>
-
-   <section class="products-container">
-    <section class="products-category">
     <hr>
+  <section>
+    elementos almacenados en la sesión: <br>
+   
+    {{foreach cart_items}}
+      <br>
+      <span>{{desc}}</span>
+      <br>
+      <span>L.{{price}}</span>
+      <br>
+    {{endfor cart_items}}
+  </section>
+    <hr>
+
+  <section class="container">
     <h3>Productos</h3>
+      <div class="row">
       {{foreach products}}
-        <section class="cards" style="display:inline-block;margin-left:2rem">
-          <div class="card-desc">{{prddsc}}</div>
-          <div class="card-img"><img src="{{prdImgPrm}}"/></div>
-          <div class="card-price">Precio: {{prdprc}}</div>
-          <div class="card-category">Categoria: {{prdctg}}</div>
-          <a href="#">Agregar al carrito</a>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-        </section>
-      {{endfor products}}
-    </section>
-  <section> 
- 
+        <div class="col-3 p-1">          
+            <div class="card">
+              <img 
+                title="{{prddsc}}"
+                alt="{{prddsc}}"
+                class="card-img-top" 
+                src="{{prdImgPrm}}"
+                data-toggle="popover"
+                data-trigger="hover"
+                data-bs-content="{{prddsc}}" />
+              
+              <div class="card-body">
+                  <span>{{prddsc}}</span>
+                  <h5 class="card-title">L.{{prdprc}}</h5>
+
+                  <form action="index.php?page=index&action=add&id={{prdcod}}" method="post">
+                    <input type="hidden" name="id" id="id" value="{{prdcod}}">
+                    <input type="hidden" name="desc" id="desc" value="{{prddsc}}">
+                    <input type="hidden" name="price" id="price" value="{{prdprc}}">
+                    <input type="hidden" name="imgurl" id="imgurl" value="{{prdImgPrm}}">
+
+                    <button class="btn btn-primary" 
+                      name="btnAccion" 
+                      value="Agregar" 
+                      type="submit">
+                      Agregar al carrito
+                    </button>
+                  </form>
+              </div>
+            </div>
+        </div>
+        {{endfor products}}
+     </div>
+  </section>
+    

@@ -23,6 +23,7 @@
         <li><a href="index.php?page=index">Inicio</a></li>
         <li><a href="index.php?page=sec_login">Iniciar Sesión</a></li>
         <li><a href="index.php?page=sec_register">Crear Cuenta</a></li>
+        <li><a href="index.php?page=cart">Carrito: L.{{totalcarrito}}</a></li>
       </ul>
     </nav>
   </header>
