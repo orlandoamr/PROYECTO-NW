@@ -1,3 +1,11 @@
+<nav class="navbar navbar-light bg-light m-0 p-3 sticky-top">
+  <div class="container  ">
+    <h1 class="fs-5 text-center">Items en su carrito: {{total_items}}</h1>
+    <button class="btn btn-primary btn-lg" onClick="window.location.href='index.php?page=cart'">
+      Ver Carrito
+    </button>
+  </div>
+</nav>
 <section>
   {* {{foreach heroes}}
     <section class="hero">
@@ -25,17 +33,6 @@
     <br>
   </section>
     <hr>
-  <section>
-    elementos almacenados en la sesión: <br>
-   
-    {{foreach cart_items}}
-      <br>
-      <span>{{desc}}</span>
-      <br>
-      <span>L.{{price}}</span>
-      <br>
-    {{endfor cart_items}}
-  </section>
     <hr>
 
   <section class="container">
@@ -57,7 +54,7 @@
                   <span>{{prddsc}}</span>
                   <h5 class="card-title">L.{{prdprc}}</h5>
 
-                  <form action="index.php?page=index&action=add&id={{prdcod}}" method="post">
+                  <form action="index.php" method="post">
                     <input type="hidden" name="id" id="id" value="{{prdcod}}">
                     <input type="hidden" name="desc" id="desc" value="{{prddsc}}">
                     <input type="hidden" name="price" id="price" value="{{prdprc}}">
@@ -65,7 +62,7 @@
 
                     <button class="btn btn-primary" 
                       name="btnAccion" 
-                      value="Agregar" 
+                      value="add" 
                       type="submit">
                       Agregar al carrito
                     </button>

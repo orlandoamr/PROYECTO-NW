@@ -31,54 +31,51 @@ class Index extends PublicController
     {
         \Utilities\Site::addLink("public/css/heropanel.css");
         \Utilities\Site::addLink("public/css/bootstrap.min.css");
-        /*
-        1 Conseguir de la DB los registro de Heroes activos
-        2 Injectarlo en un arreglo de vista
-        3 Mostrar los heros panels en la vista
-        */
+      
         $viewData = array();
         $viewData["page"] = $this->toString();
         //$viewData["heroes"] = \Dao\HeroPanel::getActiveHeroeos();
         $viewData["categories"] = \Dao\ProductoPanel::getProductsCategories();
         $viewData["products"] = \Dao\ProductoPanel::getActiveProducts();
         
+        if ($this->isPostBack()){
+                if(isset($_POST["id"])){
+                    $id = $_POST["id"];
+                    if($_POST["btnAccion"]=="add"){
+                        $itemArray = array
+                        (
+                            "id"=> $_POST["id"],
+                            "desc"=>$_POST["desc"],
+                            "price"=>$_POST["price"],
+                            "imgurl"=>$_POST["imgurl"]
+                        );
 
-        if ($this->isPostBack()) {
-            $viewData["mode"] = $_GET["action"];
-            switch($viewData["mode"]){
-                case "add":
-                    //$product = \Dao\ProductoPanel::getProductoById(1);
-                    //$_SESSION["cart_item"] = array();
-                    $itemArray = array
-                    (
-                        "id"=> $_POST["id"],
-                        "desc"=>$_POST["desc"],
-                        "price"=>$_POST["price"],
-                        "imgurl"=>$_POST["imgurl"]
-                    );
+                        if(!isset($_SESSION["cart_items"])){
+                            $_SESSION["cart_items"][0] =  $itemArray;
+                        }else{
+                            $idproductos=array_column($_SESSION['cart_items'],"id");
 
-                    if(!isset($_SESSION["cart_item"])){
-                        $_SESSION["cart_item"] = array();
-                        $_SESSION["cart_item"][0] =  $itemArray;
-                    }else{
-                        $NumeroProductos=count($_SESSION['cart_items']);
-                        $_SESSION['cart_items'][$NumeroProductos] = $itemArray;
+                            if(in_array($id,$idproductos)){
+                                \Utilities\Site::redirectToWithMsg("index.php?page=index", "Este producto ya existe en el carrito");
+                            }else{ 
+                                $NumeroProductos=count($_SESSION['cart_items']);
+                                $_SESSION['cart_items'][$NumeroProductos] = $itemArray;
+                        }
+                        }
+
+                        $viewData["cart_items"] = $_SESSION["cart_items"];
+
                     }
-
-                    
-                    
-                    $viewData["cart_items"] = $_SESSION["cart_item"];
-                    break;
-
-                case "rem":
-
-                    break;
-
-                case "empty":
-
-                    break;
+                }
+               
+                
             }
-         }
+
+            if(isset($_SESSION["cart_items"])){
+                $viewData["total_items"] = $NumeroProductos=count($_SESSION['cart_items']);
+            }else{
+                $viewData["total_items"] = 0;
+            }
 
         \Views\Renderer::render("index", $viewData);
     }

@@ -174,7 +174,7 @@ CREATE TABLE IF NOT EXISTS `productos` (
 CREATE TABLE IF NOT EXISTS `products` (
   `prdcod` bigint(18) unsigned NOT NULL AUTO_INCREMENT,
   `prddsc` varchar(45) DEFAULT NULL,
-  `prdprc` decimal(18,4) DEFAULT NULL,
+  `prdprc` decimal(18,2) DEFAULT NULL,
   `prdctg` varchar(45) DEFAULT NULL,
   `prdImgPrm` varchar(255) DEFAULT NULL,
   `prdImgScd` varchar(255) DEFAULT NULL,
@@ -185,14 +185,14 @@ CREATE TABLE IF NOT EXISTS `products` (
 -- Dumping data for table nw202101.products: ~8 rows (approximately)
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
 INSERT INTO `products` (`prdcod`, `prddsc`, `prdprc`, `prdctg`, `prdImgPrm`, `prdImgScd`, `prdest`) VALUES
-	(1, 'Teclado Logitech', 300.0000, 'Teclados', 'https://via.placeholder.com/150', 'imgs/products/teclados/cpu_prm.jpg', 'ACT'),
-	(2, 'Teclado DELL', 400.0000, 'Teclados', 'https://via.placeholder.com/150', NULL, 'ACT'),
-	(3, 'Teclado Genius', 500.0000, 'Teclados', 'https://via.placeholder.com/150', NULL, 'ACT'),
-	(4, 'Teclado BENQ', 300.0000, 'Teclados', 'https://via.placeholder.com/150', NULL, 'ACT'),
-	(5, 'Mouse Logitech', 700.0000, 'Mouses', 'https://via.placeholder.com/150', NULL, 'ACT'),
-	(6, 'Mouse Microsoft', 800.0000, 'Mouses', 'https://via.placeholder.com/150', NULL, 'ACT'),
-	(9, 'Mouse Razer', 1200.0000, 'Mouses', 'https://via.placeholder.com/150', NULL, 'ACT'),
-	(10, 'Mouse X', 500.0000, 'Mouses', 'https://via.placeholder.com/150', NULL, 'ACT');
+	(1, 'Teclado Logitech', 300.00, 'Teclados', 'https://via.placeholder.com/150', 'imgs/products/teclados/cpu_prm.jpg', 'ACT'),
+	(2, 'Teclado DELL', 400.00, 'Teclados', 'https://via.placeholder.com/150', NULL, 'ACT'),
+	(3, 'Teclado Genius', 500.00, 'Teclados', 'https://via.placeholder.com/150', NULL, 'ACT'),
+	(4, 'Teclado BENQ', 300.00, 'Teclados', 'https://via.placeholder.com/150', NULL, 'ACT'),
+	(5, 'Mouse Logitech', 700.00, 'Mouses', 'https://via.placeholder.com/150', NULL, ''),
+	(6, 'Mouse Microsoft', 800.00, 'Mouses', 'https://via.placeholder.com/150', NULL, 'ACT'),
+	(9, 'Mouse Razer', 1200.00, 'Mouses', 'http://localhost/proyecto-nw/public/imgs/products/mouse.jpg', NULL, 'ACT'),
+	(10, 'Mouse X', 500.00, 'Mouses', 'https://via.placeholder.com/150', NULL, 'ACT');
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 
 -- Dumping structure for table nw202101.roles
@@ -263,13 +263,14 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   PRIMARY KEY (`usercod`),
   UNIQUE KEY `useremail_UNIQUE` (`useremail`),
   KEY `usertipo` (`usertipo`,`useremail`,`usercod`,`userest`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
--- Dumping data for table nw202101.usuario: ~2 rows (approximately)
+-- Dumping data for table nw202101.usuario: ~3 rows (approximately)
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
 INSERT INTO `usuario` (`usercod`, `useremail`, `username`, `userpswd`, `userfching`, `userpswdest`, `userpswdexp`, `userest`, `useractcod`, `userpswdchg`, `usertipo`) VALUES
 	(1, 'orlandomrok@gmail.com', 'John Doe', '$2y$10$DEjEvXJ8b9833xfLSh3M4uDRPr4kipoPQhQZJ1o22EUBmujym5adC', '2021-07-08 17:38:43', 'ACT', '2021-10-06 00:00:00', 'ACT', '0e1a7a3ae233deb8363a4bd13190332e9252cf966e94c530dc3ff97cf49855df', '2021-07-08 17:38:43', 'ADM'),
-	(2, 'orlando@gmail.com', 'John Doe', '$2y$10$Iw8V.afsEZaEzbuj.tnkjupjA8uQp4gl/C4QQCA5Ijmbqe.ekdcoa', '2021-07-23 08:58:56', 'ACT', '2021-10-21 00:00:00', 'ACT', 'cf56fb857484286bf30affcf8e8d54848540424dcac8d53c1e5090f058a21dd5', '2021-07-23 08:58:56', 'ADM');
+	(2, 'orlando@gmail.com', 'John Doe', '$2y$10$Iw8V.afsEZaEzbuj.tnkjupjA8uQp4gl/C4QQCA5Ijmbqe.ekdcoa', '2021-07-23 08:58:56', 'ACT', '2021-10-21 00:00:00', 'ACT', 'cf56fb857484286bf30affcf8e8d54848540424dcac8d53c1e5090f058a21dd5', '2021-07-23 08:58:56', 'ADM'),
+	(3, 'orlando1@gmail.com', 'John Doe', '$2y$10$tTbnvVYqqXePlYS2Q05.5.VMmv6h7s/JR1ShkVobkRX8OixpoQyQW', '2021-07-24 17:43:18', 'ACT', '2021-10-22 00:00:00', 'ACT', '2f9cb1b49a1995afa2d1437e7606176b774476b520eb10dd0ab8ed6c009c7ac2', '2021-07-24 17:43:18', 'PBL');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
