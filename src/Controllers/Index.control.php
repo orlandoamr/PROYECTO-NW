@@ -46,7 +46,9 @@ class Index extends PublicController
                         (
                             "id"=> $_POST["id"],
                             "desc"=>$_POST["desc"],
+                            "cant"=>$_POST["cant"],
                             "price"=>$_POST["price"],
+                            "total"=>$_POST["price"] * $_POST["cant"],
                             "imgurl"=>$_POST["imgurl"]
                         );
 

@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/{{BASE_DIR}}/public/css/appstyle.css" />
+  <link rel="stylesheet" href="/{{BASE_DIR}}/public/css/style.css" />
   <script src="https://kit.fontawesome.com/bd626a0718.js" crossorigin="anonymous"></script>
   {{foreach SiteLinks}}
     <link rel="stylesheet" href="/{{~BASE_DIR}}/{{this}}" />
@@ -17,10 +18,13 @@
 </head>
 <body>
   <header>
-    <h1>{{SITE_TITLE}}</h1>
+    <div>
+      <img src="http://localhost/proyecto-nw/public/imgs/logo.jpg" />
+      <h1>{{SITE_TITLE}}</h1>
+    </div>
     <nav>
       <ul>
-        <li><a href="index.php?page=index">Inicio</a></li>
+        <li><a href="index.php?page=index">Incio</a></li>
         <li><a href="index.php?page=sec_login">Iniciar Sesión</a></li>
         <li><a href="index.php?page=sec_register">Crear Cuenta</a></li>
       </ul>

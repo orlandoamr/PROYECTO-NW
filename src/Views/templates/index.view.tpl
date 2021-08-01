@@ -33,7 +33,6 @@
     <br>
   </section>
     <hr>
-    <hr>
 
   <section class="container">
     <h3>Productos</h3>
@@ -54,11 +53,12 @@
                   <span>{{prddsc}}</span>
                   <h5 class="card-title">L.{{prdprc}}</h5>
 
-                  <form action="index.php" method="post">
+                  <form action="index.php?page=index" method="post">
                     <input type="hidden" name="id" id="id" value="{{prdcod}}">
                     <input type="hidden" name="desc" id="desc" value="{{prddsc}}">
                     <input type="hidden" name="price" id="price" value="{{prdprc}}">
                     <input type="hidden" name="imgurl" id="imgurl" value="{{prdImgPrm}}">
+                    <input type="number" name="cant" id="cant" value="1" min="1" class="form-control mt-2" >
 
                     <button class="btn btn-primary" 
                       name="btnAccion" 

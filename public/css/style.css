@@ -23,7 +23,11 @@ header {
   padding:0px;
   flex-wrap: wrap;
 }
-header h1{
+header div{
+  display: flex;
+  flex-direction: row;
+}
+header div h1{
   margin:0px;
   padding:0.75rem 1rem;
   font-size: 1.5rem;
