@@ -39,7 +39,11 @@
                 <th colspan="4" width="25%" class="text-center fs-3">L.{{total_cart}}</th>
             </tr>
             <tr>
-                <th colspan="5" width="25%" class="text-center "><button class="btn btn-primary btn-lg fs-3">Continuar</button></th>
+                <th colspan="5" width="25%" class="text-center ">
+                    <form action="index.php?page=checkout_checkout" method="POST">
+                        <button class="btn btn-primary btn-lg fs-3" type="submit">Continuar</button>
+                    </form>
+                </th>
             </tr>
         </tbody>
     </table>
