@@ -7,32 +7,20 @@
   </div>
 </nav>
 <section>
-  {* {{foreach heroes}}
-    <section class="hero">
-      <img src="/{{~BASE_DIR}}/{{heroimgurl}}">
-      <section class="action">
-          {{heroname}}
-          <br/>
-          {{heroaction}}
-      </section>
-      <hr/>
-    </section>
-  {{endfor heroes}} *}
 
-  <section>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-      Aqui van todos los items del hero
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-  </section>
-    <hr>
+
+   
+<div class="container">
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    {{foreach heroes}}
+      <div class="carousel-item active">
+        <img src="{{heroimgurl}}" class="d-block w-100" >
+      </div>
+    {{endfor heroes}}
+  </div>
+</div>
+</div>
 
   <section class="container">
     <h3>Productos</h3>
@@ -73,4 +61,5 @@
         {{endfor products}}
      </div>
   </section>
+
     

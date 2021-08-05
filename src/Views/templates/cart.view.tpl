@@ -17,7 +17,6 @@
                     <th width="40%">{{desc}}</th>
                     <th width="15%" class="d-flex justify-content-evenly w-100"> 
                         {{cant}}
-
                     </th>
                     <th width="20%" class="text-center">L.{{price}}</th>
                     <th width="20%" class="text-center">L.{{total}}</th>

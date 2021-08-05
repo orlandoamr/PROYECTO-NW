@@ -17,6 +17,7 @@ class ProductoPanel extends Table{
             "SELECT * from products;",
             array()
         );
+        
         return $registros;
     }
 
@@ -28,6 +29,7 @@ class ProductoPanel extends Table{
         return $registro;
 
     }
+
     public static function getActiveProducts(){
         $sqlstr = "SELECT *FROM products WHERE prdest='ACT'";
         

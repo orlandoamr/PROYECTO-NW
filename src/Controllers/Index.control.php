@@ -34,17 +34,22 @@ class Index extends PublicController
       
         $viewData = array();
         $viewData["page"] = $this->toString();
-        //$viewData["heroes"] = \Dao\HeroPanel::getActiveHeroeos();
+        $viewData["heroes"] = \Dao\HeroPanel::getActiveHeroeos();
         $viewData["categories"] = \Dao\ProductoPanel::getProductsCategories();
+        
         $viewData["products"] = \Dao\ProductoPanel::getActiveProducts();
         
         if ($this->isPostBack()){
+
                 if(isset($_POST["id"])){
+
                     $id = $_POST["id"];
+
                     if($_POST["btnAccion"]=="add"){
+
                         $itemArray = array
                         (
-                            "id"=> $_POST["id"],
+                            "id"=>$_POST["id"],
                             "desc"=>$_POST["desc"],
                             "cant"=>$_POST["cant"],
                             "price"=>$_POST["price"],
@@ -54,7 +59,9 @@ class Index extends PublicController
 
                         if(!isset($_SESSION["cart_items"])){
                             $_SESSION["cart_items"][0] =  $itemArray;
+                            
                         }else{
+
                             $idproductos=array_column($_SESSION['cart_items'],"id");
 
                             if(in_array($id,$idproductos)){
@@ -62,7 +69,7 @@ class Index extends PublicController
                             }else{ 
                                 $NumeroProductos=count($_SESSION['cart_items']);
                                 $_SESSION['cart_items'][$NumeroProductos] = $itemArray;
-                        }
+                            }
                         }
 
                         $viewData["cart_items"] = $_SESSION["cart_items"];
