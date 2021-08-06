@@ -2,14 +2,7 @@
 namespace Dao;
 
 class ProductoPanel extends Table{
-    /*
-    `prdcod` bigint(18) unsigned NOT NULL AUTO_INCREMENT,
-    `prddsc` varchar(45) DEFAULT NULL,
-    `prdprc` decimal(18,4) DEFAULT NULL,
-    `prdImgPrm` varchar(255) DEFAULT NULL,
-    `prdImgScd` varchar(255) DEFAULT NULL,
-    */
-
+    
     public static function getAllProductos()
     {
         $registros = array();
@@ -62,7 +55,7 @@ class ProductoPanel extends Table{
 
     public static function updateProducto($prddsc, $prdprc, $prdImgPrm, $prdImgScd, $prdcod)
     {
-        $updSQL = "UPDATE `products` set `prddsc`=:prddsc, `prdprc`=:prdprc, `prdImgPrm`=:prdImgPrm, `prdImgScd`=:prdImgScd, `prdcod`=:prdcod;";
+        $updSQL = "UPDATE `products` set `prddsc`=:prddsc, `prdprc`=:prdprc, `prdImgPrm`=:prdImgPrm, `prdImgScd`=:prdImgScd where prdcod=:prdcod;";
         $parameters = array(
             "prddsc" => $prddsc,
             "prdprc" => $prdprc,

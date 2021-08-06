@@ -35,6 +35,7 @@ class Index extends PublicController
         $viewData = array();
         $viewData["page"] = $this->toString();
         $viewData["heroes"] = \Dao\HeroPanel::getActiveHeroeos();
+        $viewData["heroes"][0]["active"] = "active";
         $viewData["categories"] = \Dao\ProductoPanel::getProductsCategories();
         
         $viewData["products"] = \Dao\ProductoPanel::getActiveProducts();
@@ -47,13 +48,16 @@ class Index extends PublicController
 
                     if($_POST["btnAccion"]=="add"){
 
+                        $cant = 0;
+                        ($_POST["cant"] > 0) ? $cant = $_POST["cant"] : $cant = 1;
+
                         $itemArray = array
                         (
                             "id"=>$_POST["id"],
                             "desc"=>$_POST["desc"],
-                            "cant"=>$_POST["cant"],
+                            "cant"=>$cant,
                             "price"=>$_POST["price"],
-                            "total"=>$_POST["price"] * $_POST["cant"],
+                            "total"=>$_POST["price"] * $cant,
                             "imgurl"=>$_POST["imgurl"]
                         );
 

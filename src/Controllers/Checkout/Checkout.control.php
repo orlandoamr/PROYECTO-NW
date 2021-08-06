@@ -2,9 +2,6 @@
 
 namespace Controllers\Checkout;
 
-use Controllers\PrivateController;
-namespace Controllers\Checkout;
-
 use Controllers\PublicController;
 
 class Checkout extends PublicController {

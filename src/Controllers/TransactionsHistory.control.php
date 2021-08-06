@@ -14,31 +14,25 @@
 
                 $transactions = \Dao\Transactions::getUserTransactions($userId);
                 
-                // $cont = 0;
-                // foreach ($transactions as $transaction){
-                //    $viewData["transactions"][$cont] = $transaction;
-                //    $cont++;
-                // }
-                
                 $cont = 0;
-                foreach ($transactions as $row=>$innerArray){
-                    // $viewData["transactions"][$cont] = array(); //$innerArray;
-                    // $cont++;
+                $viewData["transactions"]= array();
 
-                    foreach ($innerArray as $innerRow=>$value){
-                        $value = json_decode($value, TRUE);
-                        $viewData['value']= $value;
-                    }
+                foreach ($transactions as $row=>$item){
+                    $viewData["transactions"][$cont]["products"] = json_decode($item["htprds"], TRUE); 
+                    $viewData["transactions"][$cont]["date"] = $item["fchtrs"];
+                    $viewData["transactions"][$cont]["total"] = $item["total"];
+                    $cont++;
                 }
-    
-               \Views\Renderer::render("transactions", $viewData);
+
+                \Views\Renderer::render("transactions", $viewData);
 
             }else{
                 \Utilities\Site::redirectTo(
                     "index.php?page=sec_login"
                 );
             }
-        }
+
            
+        }
     }
 ?>

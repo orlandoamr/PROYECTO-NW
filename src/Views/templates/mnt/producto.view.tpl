@@ -20,7 +20,7 @@
     </div>
     <div class="row my-2 align-center">
       <label class="col-12 col-m-3" for="prdImgPrm">ImgPrm</label>
-      <input class="col-12 col-m-9" {{readonly}} type="file" name="prdImgPrm" id="prdImgPrm" />
+      <input class="col-12 col-m-9" {{readonly}} type="text" name="prdImgPrm" id="prdImgPrm" value="{{prdImgPrm}}"/>
     </div>
     <div class="row my-2 align-center">
       <label class="col-12 col-m-3" for="prdImgScd">ImgScd</label>

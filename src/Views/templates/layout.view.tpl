@@ -24,7 +24,7 @@
     </div>
     <nav>
       <ul>
-        <li><a href="index.php?page=index">Incio</a></li>
+        <li><a href="index.php?page=index">Inicio</a></li>
         <li><a href="index.php?page=sec_login">Iniciar Sesión</a></li>
         <li><a href="index.php?page=sec_register">Crear Cuenta</a></li>
       </ul>
@@ -37,7 +37,8 @@
     <div>Todo los Derechos Reservados 2021 &copy;</div>
   </footer>
   {{foreach EndScripts}}
-    <script src="/{{~BASE_DIR}}/{{this}}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+  <script src="/{{~BASE_DIR}}/{{this}}"></script>
   {{endfor EndScripts}}
 </body>
 </html>

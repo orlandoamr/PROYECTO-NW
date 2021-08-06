@@ -18,8 +18,8 @@
                     <th width="15%" class="d-flex justify-content-evenly w-100"> 
                         {{cant}}
                     </th>
-                    <th width="20%" class="text-center">L.{{price}}</th>
-                    <th width="20%" class="text-center">L.{{total}}</th>
+                    <th width="20%" class="text-center">${{price}}</th>
+                    <th width="20%" class="text-center">${{total}}</th>
                     <th width="5%">
                         <form action="index.php?page=cart" method="post">
                             <input type="hidden" name="id" id="id" value="{{id}}">
@@ -35,7 +35,7 @@
             {{endfor items}}
             <tr>
                 <th width="25%" class="fs-3">Total del carrito</th>
-                <th colspan="4" width="25%" class="text-center fs-3">L.{{total_cart}}</th>
+                <th colspan="4" width="25%" class="text-center fs-3">${{total_cart}}</th>
             </tr>
             <tr>
                 <th colspan="5" width="25%" class="text-center ">

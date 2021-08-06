@@ -8,22 +8,23 @@
             $registros = array();
             $parameters = array("id" => $id);
             $registros = self::obtenerRegistros(
-                "SELECT * from historico_transacciones where usrcod=:id ORDER BY fchtrs desc;",
+                "SELECT htprds, fchtrs,total from historico_transacciones where usrcod=:id ORDER BY fchtrs desc;",
                 $parameters
             );
             
             return $registros;
         }
 
-        public static function addTransaction($htprds, $payres, $usrcod, $fchtrs)
+        public static function addTransaction($htprds, $payres, $usrcod, $fchtrs, $total)
         {
-            $insSQL = "INSERT INTO `historico_transacciones` (`htprds`, `payres`, `usrcod`, `fchtrs`) VALUES(:htprds, :payres, :usrcod, :fchtrs)";
+            $insSQL = "INSERT INTO `historico_transacciones` (`htprds`, `payres`, `usrcod`, `fchtrs`, `total`) VALUES(:htprds, :payres, :usrcod, :fchtrs, :total)";
 
             $parameters = array(
                 "htprds" => $htprds,
                 "payres" => $payres,
                 "usrcod" => $usrcod,
-                "fchtrs" => $fchtrs
+                "fchtrs" => $fchtrs,
+                "total" => $total
             );
     
             return self::executeNonQuery($insSQL, $parameters);
